@@ -43,8 +43,9 @@ def hit?(num)
       num
     elsif input == 'h'
       deal_card + num
-      elsif input != 's' || 'h'
-      puts invalid_command
+    else
+      invalid_command
+      hit?(num)
   end
 end
 
@@ -58,6 +59,12 @@ end
 #####################################################
 
 def runner
-  # code runner here
+  welcome
+  num = initial_round
+  until num > 21
+  num = hit?(num)
+  display_card_total(num)
+end
+end_game(num)
 end
     
